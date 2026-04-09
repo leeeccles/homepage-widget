@@ -103,6 +103,19 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    /* Normalise colour temperature across all photos */
+    filter: grayscale(35%) brightness(0.92) contrast(1.08);
+  }
+
+  /* Brand teal tint — unifies the set and ties back to BridgeWorks palette */
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 90, 80, 0.22);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 1;
   }
 
   /* Cinematic gradient — dense at base, fully fades to transparent in top half */
@@ -110,6 +123,7 @@
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 56px 14px 16px;
+    z-index: 2;
     background: linear-gradient(
       to top,
       rgba(0,0,0,0.92)  0%,
